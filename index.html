@@ -20,8 +20,7 @@
      <script  type="text/babel">
      const root = document.querySelector('#root');
      
-     function Resume(props){
-         console.log(props)
+     function App(props){
          return(
              <div>
                 <header>
@@ -71,7 +70,7 @@
              </div>
          )
      }
-     ReactDOM.render(<Resume
+     ReactDOM.render(<App
      credentialsClass='credentials'
      jobTitleClass='jobTitle'
      employmentId='employmentSection'
@@ -103,7 +102,7 @@
             <p>Writen by Sally <a href={`mailto:aadesiderio86@gmail.com?subject="Job Offer" &body=Hi, I'd really like to hire you!`}></a></p>
             </address>}
 
-     </Resume>, root);
+     </App>, root);
      
      
      
