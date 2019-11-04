@@ -1,0 +1,103 @@
+*{
+box-sizing: border-box;
+}
+
+#root{
+    width: 100%;
+}
+
+main, header{
+    width: 95%;
+    margin: auto;
+}
+
+h1, h2, h3{
+    text-align: center;
+    font-weight: bold;
+    padding: 14px 20px;
+    text-decoration: underline;
+}
+
+h1{
+    font-size: 28px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+h3{
+    font-size: 18px;
+}
+
+header, main{
+    padding-top: 30px;
+}
+
+#employmentSection, #educationSection, #contactSection{
+    padding: 14px 20px;
+    margin: 20px auto;
+    border: 1px solid black;
+    max-width: 550px;
+}
+
+
+.credentials{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.jobTitle{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.employmentItem{
+    background-color: grey;
+    padding: 14px 20px;
+    margin: 20px auto;
+}
+
+
+
+
+#contactDiv{
+    margin: auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ .contactInfo{
+   margin: 20px auto;
+} 
+
+#contactTitle{
+text-align: left;
+padding-left: 0;
+}
+
+
+address{
+    padding: 14px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+@media screen and (min-width:500px){
+    #contactDiv{
+        margin: auto;
+        display:flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .contactInfo{
+        display: inline-block;
+        width: 45%;
+        position: relative;
+    } 
+}
+

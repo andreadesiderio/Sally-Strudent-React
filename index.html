@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sally Student React</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="normalise.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="root"></div>
+
+
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+     <script  type="text/babel">
+     const root = document.querySelector('#root');
+     
+     function Resume(props){
+         console.log(props)
+         return(
+             <div>
+                <header>
+                    <h1>{`${props.name.firstName}'s Resume`}</h1>
+                </header>
+                <main>
+                    <h2>Credentials</h2>
+                    <section className={props.credentialsClass} id={props.employmentId}>
+                        <h2>Employment</h2>
+                        <ul className="employmentList">
+                        {props.employment.map(item => {
+                            return(
+                                <li className='employmentItem'>
+                                    <h3>{item.companyName}</h3>
+                                    <p className={props.jobTitleClass}>{item.jobTitle}</p>
+                                    <p>{item.description}</p>
+                                </li>
+                            )
+                        }
+
+                        )}
+                        </ul>
+                    </section>
+                    <section className={props.credentialsClass} id={props.educationId}>
+                            <h2>Education</h2>
+                            <ul className="educationList">
+                            {props.education.map(item => <li>{item}</li>)}
+                            </ul>
+                    </section>
+                    <section id={props.contactId}>
+                            <h2 id="contactHeading">Contact Me!</h2>
+                            <div id="contactDiv">
+                                <div className="contactInfo">
+                                    <h3 id='contactTitle'>{props.name.firstName} {props.name.lastName}</h3>
+                                    <p>{props.contact.email}</p>
+                                    <p>{props.contact.adress}</p>
+                                </div>
+                                <div className="contactInfo">
+                                    <img src={props.imgSrc} />
+                                </div>
+                            </div>
+                    </section>
+                </main>
+                <footer>
+                {props.children}
+                </footer>
+             </div>
+         )
+     }
+     ReactDOM.render(<Resume
+     credentialsClass='credentials'
+     jobTitleClass='jobTitle'
+     employmentId='employmentSection'
+     educationId='educationSection'
+     contactId='contactSection' 
+     name={{
+         firstName:'Sally',
+         lastName: 'Student'
+     }}
+     imgSrc='https://ia.media-imdb.com/images/M/MV5BMTY5NzE3NzU3MF5BMl5BanBnXkFtZTgwMjg0NTQ5MDE@._V1_UX214_CR0,0,214,317_AL_.jpg'
+     education={['HighSchool High', 'College University']}
+     contact={{
+         email:'email@email.com',
+        adress: '111 thisAdrress Ave. City, St 23445'
+     }}
+     employment={[
+         {
+             companyName: 'Company1',
+             jobTitle : 'Title1',
+             description : 'This is a descrtiption'
+         },
+         {
+             companyName: 'Company2',
+             jobTitle : 'Title2',
+             description : 'This is another descrtiption'
+         }
+         ]}>
+            {<address>
+            <p>Writen by Sally <a href={`mailto:aadesiderio86@gmail.com?subject="Job Offer" &body=Hi, I'd really like to hire you!`}></a></p>
+            </address>}
+
+     </Resume>, root);
+     
+     
+     
+     </script>
+    </body>
+</html>
